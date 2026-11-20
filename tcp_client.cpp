@@ -22,10 +22,16 @@ int main(){
 	}
 	
 	struct sockaddr_in serv_addr; // IPv4 address structure
+	std::memset(&serv_addr, 0, sizeof(serv_addr)); // zero-initialize address structure
 	serv_addr.sin_family = AF_INET; // set address type to IPv4
-	serv_addr.sin_addr.s_addr = INADDR_ANY; // ???
 	serv_addr.sin_port = htons(PORT); //convert TCP port number to network byte order
 	
+	
+	//Convert human readable IPv4 string (127.0.0.1) to binary byte order
+	if(inet_pton(AF_INET, "127.0.0.1", &serv_addr.sin_addr) <= 0){
+		std::cout << "ADDRESS NOT SUPPORTED!\n";
+		return 1;
+	}
 	
 	if(connect(client_fd,(struct sockaddr*)&serv_addr, sizeof(serv_addr)) < 0){ // connect socket to address given client_fd
 		std::cout << "CLIENT CONNECTION FAILURE!\n";
