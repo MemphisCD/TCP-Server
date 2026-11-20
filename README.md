@@ -13,7 +13,7 @@ to a message board. The server and client program runs on C++.
 - Clients send messages to entire server via Multithreading using mutex to synchronize resource access.
 
 
-## Dependencies ????
+## Dependencies 
 - Tested on Linux (WSL), compatible with any Linux Distribution that is POSIX-compliant
 - Any compiler that can support c++17 (such as g++ 13.3.0 or gcc 7+)
 
@@ -21,33 +21,34 @@ to a message board. The server and client program runs on C++.
 
 1. Clone the repository:
 
-'''bash
-git clone <???>
-cd <>
-'''
+```bash
+git clone https://github.com/MemphisCD/TCP-Server.git
+cd TCP-Server
+```
+
 2. Compile both the server and client programs:
-'''bash
+```bash
 	g++ -std=c++17 tcp_server.cpp -o s
 	g++ -std=c++17 tcp_client.cpp -o c
-'''
+```
 ## Execution:
 
 1. Start the server:
 
-'''bash
+```bash
 	./s
-'''
+```
 2. Start the client (in a new terminal):
 
-'''bash
+```bash
 	./c
-'''
+```
 
 ## Example output
 
 ### Server Terminal
 
-'''text
+```text
 name@host$ ./s
 
 Socket created
@@ -77,11 +78,11 @@ Client Disconnected. ID: 5
 user_1: dang
 
 ____________
-'''
+```
 
 ### Client (user_1) terminal
 
-'''text
+```text
 name@host$ ./c
 
 Welcome to the Server!
@@ -101,7 +102,7 @@ ____________
 dang
 
 name@host$ 
-'''
+```
 
 ## Future improvements
 - private messaging between two or more clients
